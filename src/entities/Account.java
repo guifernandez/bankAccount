@@ -1,5 +1,7 @@
 package entities;
 
+import model.Exceptions.DomainException;
+
 public class Account {
     Integer Number;
     String holder;
@@ -44,7 +46,7 @@ public class Account {
     }
     public void withdraw(Double amount){
         if (balance == 0){
-            throw new IllegalArgumentException("Impossivel efetuar saque pois o saldo está zerado.");
+            throw new DomainException("Impossivel efetuar saque pois o saldo está zerado.");
         } else if (amount > withdrawLimit) {
             throw new RuntimeException ("O saque não pode ser maior que o limite de saque");
 

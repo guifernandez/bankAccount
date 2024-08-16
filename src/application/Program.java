@@ -1,6 +1,7 @@
 package application;
 
 import entities.Account;
+import model.Exceptions.DomainException;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -28,12 +29,12 @@ public class Program {
 
             try {
                 account.withdraw(amount);
-            } catch ( IllegalArgumentException e ){
-                System.out.println("Impossivel efetuar o saque.");
-                e.getMessage();
+            } catch ( DomainException e ){
+                System.out.println(e.getMessage());
+
             } catch ( RuntimeException e){
-                System.out.println("O saque não pode ser maior que o limite de saque");
-                e.getMessage();
+                System.out.println(e.getMessage());
+
             }
 
 
